@@ -144,7 +144,7 @@
         <li class="header">TINGKAT RISIKO KEBAKARAN</li>
         <li><a href="#"><i class="fa fa-fax"></i> <span>Indikator & Kriteria</span></a></li>
         <li><a href="{{url('administrator/tingkat-risiko')}}"><i class="fa fa-line-chart"></i> <span>Kalkukasi Tingkat Risiko</span></a></li>
-        <li><a href="#"><i class="fa fa-fax"></i> <span>Hasil Kalkulasi</span></a></li>
+        <li><a href="{{url('administrator/tingkat-risiko/hasil-kalkulasi')}}"><i class="fa fa-fax"></i> <span>Lihat Hasil Kalkulasi</span></a></li>
         <li class="header">DATA PERMUKIMAN</li>        
         <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-plus-circle"></i> <span>Tambah Permukiman</span></a></li>
         <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-globe"></i> <span>Lokasi Permukiman</span></a></li>

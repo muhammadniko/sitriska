@@ -24,6 +24,7 @@ Route::middleware(['auth:users'])->group(function() {
     Route::get('/administrator/permukiman/remove/{kode_pos}', 'Lokasi_Controller@remove_lokasi');
     Route::get('/administrator/tingkat-risiko',  'Score_Controller@index');
     Route::get('/administrator/tingkat-risiko/kalkulasi-skor', 'Score_Controller@new_score');
+    Route::get('/administrator/tingkat-risiko/hasil-kalkulasi', 'Score_Controller@getScore');
     Route::get('/administrator/logout', 'User_Controller@logout');
 });
 

@@ -8,6 +8,7 @@ class RiskLevel extends Model
 {
     protected $table = 'T_RiskLevels';
     protected $primaryKey = 'tingkat_risiko';
+    protected $keyType = 'string';
     public $timestamps = false;
 
     public function score()

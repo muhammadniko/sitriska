@@ -74,7 +74,7 @@
                 Luas Area : <input type="text" name="luasarea">
                 Latitude : <input type="text" name="lat">
                 Langitude : <input type="text" name="lang">
-                <input type="hidden" name="user_id" value="{{ Auth::user()->user_id }}"
+                <input type="hidden" name="user_id" value="{{ Auth::user()->user_id }}">
                 <input type="submit" class="btn btn-primary" value="Tambahkan">
               </form>
 

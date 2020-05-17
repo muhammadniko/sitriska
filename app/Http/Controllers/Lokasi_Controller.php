@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use View;
+use App\Score;
 use App\Lokasi;
 
 class Lokasi_Controller extends Controller
@@ -48,8 +49,9 @@ class Lokasi_Controller extends Controller
 
     public function remove_lokasi($kode_pos)
     {
-        $permukiman = Lokasi::where('kode_pos', $kode_pos);
-        $permukiman -> delete();
+        $lokasi = Lokasi::find($kode_pos);
+        $lokasi->score()->delete();
+        $lokasi->delete();
 
         return redirect('/administrator/permukiman');
     }

@@ -15,6 +15,13 @@ class Score_Controller extends Controller
         return View::make('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
 
+    public function getScore()
+    {
+        $listOfScore = Score::with('lokasi', 'risklevels')->get();
+
+        return View::make('administrator.hasil-kalkulasi', compact('listOfScore'));
+    }
+
     public function new_score(Request $request)
     {
         $kode_pos = $request->kode_pos;
@@ -79,7 +86,7 @@ class Score_Controller extends Controller
             'sumber_air'            => $C['sumber_air'],
 
             'skor_akhir'            => $besaran_risiko,
-            'tgl_entry'             => date("d/m/y"),
+            'tgl_entry'             => date("d/m/Y"),
         ]);
 
         return redirect('/administrator');

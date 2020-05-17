@@ -16,8 +16,8 @@ class Score extends Model
         return $this->belongsTo(Lokasi::class,'kode_pos');
     }
 
-    public function riskLevel()
+    public function risklevels()
     {
-        return $this->belongsTo(RiskLevel::class, 'tingkat_risiko');
+        return $this->belongsTo(RiskLevel::class,'tingkat_risiko');
     }
 }

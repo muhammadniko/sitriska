@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use View;
 use App\Users;
 use Auth;
 
@@ -11,12 +10,12 @@ class User_Controller extends Controller
 {
     public function show_login_page() 
     {
-        return View::make('administrator.login');
+        return view('administrator.login');
     }
 
     public function show_dashboard_page()
     {
-        return View::make('administrator.dashboard');
+        return view('administrator.dashboard');
     }
 
     public function login_auth(Request $request) 

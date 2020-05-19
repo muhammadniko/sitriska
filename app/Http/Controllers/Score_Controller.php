@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use View;
 use App\Lokasi;
 use App\Score;
 
@@ -12,14 +11,14 @@ class Score_Controller extends Controller
     public function index() 
     {
         $list_of_lokasi = Lokasi::all();
-        return View::make('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
+        return view('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
 
     public function getScore()
     {
         $listOfScore = Score::with('lokasi', 'risklevels')->get();
 
-        return View::make('administrator.hasil-kalkulasi', compact('listOfScore'));
+        return view('administrator.hasil-kalkulasi', compact('listOfScore'));
     }
 
     public function new_score(Request $request)

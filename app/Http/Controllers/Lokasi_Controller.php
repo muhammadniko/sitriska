@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use View;
 use App\Score;
 use App\Lokasi;
 
@@ -12,7 +11,7 @@ class Lokasi_Controller extends Controller
     public function show_data_permukiman()
     {
         $list_of_lokasi = Lokasi::with(['score'])->get();
-        return View::make('administrator.data-permukiman', ['list_of_lokasi' => $list_of_lokasi]);
+        return view('administrator.data-permukiman', ['list_of_lokasi' => $list_of_lokasi]);
     }
 
     public function add_new_lokasi(Request $request)

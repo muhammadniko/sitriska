@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lokasi extends Model
 {
-    public $timestamps = false;
-    protected $table = 'T_Lokasi';
-    protected $primaryKey = 'kode_pos';
-    protected $guarded = [];
+    public $timestamps 		= false;
+    protected $table 		= 'T_Lokasi';
+    protected $primaryKey 	= 'kode_pos';
+    protected $guarded 		= [];
 
     public function score()
     {

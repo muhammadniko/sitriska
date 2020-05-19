@@ -10,7 +10,8 @@ class Score_Controller extends Controller
 {
     public function index() 
     {
-        $list_of_lokasi = Lokasi::all();
+        // Mengambil data lokasi yang belum memiliki Score
+        $list_of_lokasi = Lokasi::doesnthave('score')->get();
         return view('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
 

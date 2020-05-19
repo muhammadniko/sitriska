@@ -35,8 +35,8 @@
                 <option disabled selected>- Pilih Lokasi Permukiman </option>
               @foreach ($list_of_lokasi as $lokasi)
                 <option value="{{ $lokasi->kode_pos }}">
-                {{ $lokasi->kelurahan }}
-                </option>
+                    {{ $lokasi->kelurahan }}
+                </option>         
               @endforeach
               </select>
               <button id="next" class="btn btn-primary">Lanjutkan</button>

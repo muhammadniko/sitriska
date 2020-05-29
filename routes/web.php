@@ -18,7 +18,7 @@ Route::post('/administrator/authenticate', 'User_Controller@login_auth');
 
 Route::middleware(['auth:users'])->group(function() {
     Route::get('/administrator', 'User_Controller@show_dashboard_page');
-    Route::get('/administrator/permukiman', 'Lokasi_Controller@show_data_permukiman');
+    Route::get('/administrator/permukiman', 'Lokasi_Controller@displayDataLokasi');
     Route::post('/administrator/permukiman/add-new', 'Lokasi_Controller@add_new_lokasi');
     Route::post('/administrator/permukiman/update', 'Lokasi_Controller@update_lokasi');
     Route::get('/administrator/permukiman/remove/{kode_pos}', 'Lokasi_Controller@remove_lokasi');
@@ -27,6 +27,9 @@ Route::middleware(['auth:users'])->group(function() {
     Route::get('/administrator/tingkat-risiko/hasil-kalkulasi', 'Score_Controller@getScore');
     Route::get('/administrator/logout', 'User_Controller@logout');
 });
+
+Route::get('/', 'Lokasi_Controller@index');
+Route::get('/lokasi-permukiman', 'Lokasi_Controller@displayDataLokasi');
 
 
 

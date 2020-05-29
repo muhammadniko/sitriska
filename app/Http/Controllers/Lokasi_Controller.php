@@ -3,16 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Score;
 use App\Lokasi;
 
 class Lokasi_Controller extends Controller
 {
-    public function show_data_permukiman()
+    public function index()
     {
-        $list_of_lokasi = Lokasi::with(['score'])->get();
-        return view('administrator.data-permukiman', ['list_of_lokasi' => $list_of_lokasi]);
+        return view('guest.halaman-depan');
     }
+
+    /*
+        Halaman Lihat Data Lokasi
+        Akses : Pengguna Umum
+    */
+    public function displayDataLokasi()
+    {
+        $listOfLokasi = Lokasi::with(['score'])->get();
+        $viewFile = (Auth::check()) ? 'administrator.data-permukiman' : 'guest.data-permukiman';
+
+        return view ($viewFile, compact('listOfLokasi'));
+    }
+
 
     public function add_new_lokasi(Request $request)
     {

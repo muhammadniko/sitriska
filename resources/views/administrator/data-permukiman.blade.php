@@ -46,7 +46,7 @@
                   <th>Luas Area</th>
                   <th>Tingkat Risiko</th>
                 </tr>
-                @foreach ($list_of_lokasi as $lokasi)
+                @foreach ($listOfLokasi as $lokasi)
                 <tr>
                   <td>
                     <button id="edit" data-id="{{$lokasi->kode_pos}}" class="btn btn-primary btn-sm">Ubah</button>

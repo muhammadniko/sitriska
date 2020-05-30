@@ -14,10 +14,6 @@ class Lokasi_Controller extends Controller
         return view('guest.halaman-depan');
     }
 
-    /*
-        Halaman Lihat Data Lokasi
-        Akses : Pengguna Umum
-    */
     public function displayDataLokasi()
     {
         $listOfLokasi = Lokasi::with(['score'])->get();
@@ -25,7 +21,6 @@ class Lokasi_Controller extends Controller
 
         return view ($viewFile, compact('listOfLokasi'));
     }
-
 
     public function add_new_lokasi(Request $request)
     {

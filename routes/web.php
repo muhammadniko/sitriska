@@ -30,6 +30,8 @@ Route::middleware(['auth:users'])->group(function() {
 
 Route::get('/', 'Lokasi_Controller@index');
 Route::get('/lokasi-permukiman', 'Lokasi_Controller@displayDataLokasi');
+Route::get('/skor-risiko-kebakaran', 'Score_Controller@getScore');
+
 
 
 

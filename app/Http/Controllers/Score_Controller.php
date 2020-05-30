@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Lokasi;
 use App\Score;
 
@@ -18,8 +19,8 @@ class Score_Controller extends Controller
     public function getScore()
     {
         $listOfScore = Score::with('lokasi', 'risklevels')->get();
-
-        return view('administrator.hasil-kalkulasi', compact('listOfScore'));
+        $viewFile = (Auth::check()) ? 'administrator.hasil-kalkulasi' : 'guest.skor-risiko-kebakaran';
+        return view($viewFile, compact('listOfScore'));
     }
 
     public function new_score(Request $request)

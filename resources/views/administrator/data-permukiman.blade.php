@@ -83,9 +83,9 @@
               Ubah Data Lokasi Permukiman:
               <form action = "/administrator/permukiman/update")}}" method="post">
                 {{ csrf_field() }}
-                Kode Pos : <input type="text" id="new_kode_pos" name="kodeposupdated" value="" disabled>
-                Kecamatan : <input type="text" name="kecamatanupdated">
-                kelurahan : <input type="text" name="kelurahanupdated">
+                Kode Pos : <input type="text" id="new_kode_pos" name="curent_kodepos" value="">
+                Kecamatan : <input type="text" name="kecamatan_updated">
+                kelurahan : <input type="text" name="kelurahan_updated">
                 <input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
               </form>
             </div>

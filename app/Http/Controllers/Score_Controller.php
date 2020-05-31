@@ -16,14 +16,14 @@ class Score_Controller extends Controller
         return view('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
 
-    public function getScore()
+    public function getScoreLokasi()
     {
-        $listOfScore = Score::with('lokasi', 'risklevels')->get();
+        $listOfScore = Score::with('lokasi', 'riskLevels')->get();
         $viewFile = (Auth::check()) ? 'administrator.hasil-kalkulasi' : 'guest.skor-risiko-kebakaran';
         return view($viewFile, compact('listOfScore'));
     }
 
-    public function new_score(Request $request)
+    public function saveScoreLokasi(Request $request)
     {
         $kode_pos = $request->kode_pos;
         
@@ -57,10 +57,10 @@ class Score_Controller extends Controller
         $total_C = array_sum($C);
 
         // Proses perhitungan besaran nilai risiko kebakaran
-        $besaran_risiko = $this->kalkulasi_risiko($total_H, $total_V, $total_C);
+        $besaran_risiko = Score::getBesaranRisiko($total_H, $total_V, $total_C);
     
         // Penentuan Kelas dan Zonasi tingkat risiko kebakaran
-        $tingkat_risiko = $this->get_level($besaran_risiko);
+        $tingkat_risiko = Score::getTingkatRisiko($besaran_risiko);
 
         // Simpan Data Score ke dalam database
         Score::create([
@@ -91,27 +91,5 @@ class Score_Controller extends Controller
         ]);
 
         return redirect('/administrator');
-    }
-
-    public function kalkulasi_risiko($H, $V, $C)
-    {
-        $R = ($H * $V) / $C;
-
-        return $R;
-    }
-
-    public function get_level($R) 
-    {
-        if (($R >= 36) && ($R <= 54)) {
-            $tingkat_risiko = "Tinggi";
-        } else if (($R >= 18) && ($R < 36)) {
-            $tingkat_risiko = "Sedang";
-        } else if (($R >= 1) && ($R < 18)) {
-            $tingkat_risiko = "Rendah";
-        } else {
-            $tingkat_risiko = "Tidak Valid";
-        }
-
-        return $tingkat_risiko;
     }
 }

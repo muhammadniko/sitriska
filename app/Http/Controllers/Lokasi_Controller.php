@@ -22,13 +22,9 @@ class Lokasi_Controller extends Controller
         return view ($viewFile, compact('listOfLokasi'));
     }
 
-    public function add_new_lokasi(Request $request)
+    public function saveDataLokasi(Request $request)
     {
-        $this->validate($request,[
-            'kodepos' => 'required'
-        ]);
-
-        Lokasi::create([
+        $dataLokasi = [
             'kode_pos'  => $request->kodepos,
             'user_id'   => $request->user_id,
             'kelurahan' => $request->kelurahan,
@@ -36,31 +32,35 @@ class Lokasi_Controller extends Controller
             'latitude'  => $request->lat,
             'langitude' => $request->lang,
             'luas_area' => $request->luasarea,
-        ]);
+        ];
 
-        return redirect('/administrator/permukiman');
+        Lokasi::create($dataLokasi);
+
+        return back();
     }
 
-    public function update_lokasi(Request $request)
+    public function updateDataLokasi(Request $request)
     {
-        $kode_pos   = $request->kodeposupdated;
+        $dataLokasi = [
+            'kecamatan' => $request->kecamatan_updated,
+            'kelurahan' => $request->kelurahan_updated,
+        ];
 
-        $permukiman = Lokasi::where('kode_pos', $kode_pos);
-        $permukiman->update(array(
-            'kecamatan' => $request->kecamatanupdated,
-            'kelurahan' => $request->kelurahanupdated,
-        ));
+        $kodePos = $request->curent_kodepos;
 
-        return redirect('/administrator/permukiman');
+        $lokasi = Lokasi::find($kodePos);
+        $lokasi->update($dataLokasi);
+
+        return back();
     }
 
-    public function remove_lokasi($kode_pos)
+    public function removeDataLokasi($kodePos)
     {
-        $lokasi = Lokasi::find($kode_pos);
+        $lokasi = Lokasi::find($kodePos);
         $lokasi->score()->delete();
         $lokasi->delete();
 
-        return redirect('/administrator/permukiman');
+        return back();
     }
 
 }

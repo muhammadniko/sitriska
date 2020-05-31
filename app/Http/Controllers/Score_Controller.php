@@ -15,6 +15,16 @@ class Score_Controller extends Controller
         $list_of_lokasi = Lokasi::doesnthave('score')->get();
         return view('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
+    
+    public function displayChart()
+    {
+        $BanjarmasinUtara = Score::getTotalTingkatRisiko('Banjarmasin Utara');
+        $BanjarmasinSelatan = Score::getTotalTingkatRisiko('Banjarmasin Selatan');
+        $BanjarmasinBarat = Score::getTotalTingkatRisiko('Banjarmasin Barat');
+        $BanjarmasinTimur = Score::getTotalTingkatRisiko('Banjarmasin Timur');
+                
+        return view('guest.grafik-data', compact(['BanjarmasinUtara', 'BanjarmasinSelatan', 'BanjarmasinBarat', 'BanjarmasinTimur']));
+    }
 
     public function getScoreLokasi()
     {
@@ -90,6 +100,6 @@ class Score_Controller extends Controller
             'tgl_entry'             => date("d/m/Y"),
         ]);
 
-        return redirect('/administrator');
+        return redirect('/administrator/tingkat-risiko/hasil-kalkulasi');
     }
 }

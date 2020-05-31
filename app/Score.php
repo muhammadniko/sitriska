@@ -21,6 +21,32 @@ class Score extends Model
         return $this->belongsTo(RiskLevel::class,'tingkat_risiko');
     }
 
+    public static function getTotalTingkatRisiko($kecamatan)
+    {
+        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Tinggi
+        $risikoTinggi = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
+            $query->where('kecamatan', $kecamatan);
+        })->where('tingkat_risiko', 'Tinggi')->count();
+        
+        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Sedang
+        $risikoSedang = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
+            $query->where('kecamatan', $kecamatan);
+        })->where('tingkat_risiko', 'Sedang')->count();
+        
+        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Rendah
+        $risikoRendah = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
+            $query->where('kecamatan', $kecamatan);
+        })->where('tingkat_risiko', 'Rendah')->count();
+        
+        $totalRisiko = [
+            'Tinggi'=>$risikoTinggi,
+            'Sedang'=>$risikoSedang,
+            'Rendah'=>$risikoRendah,
+        ];
+        
+        return $totalRisiko;
+    }
+    
     public static function getBesaranRisiko($H, $V, $C)
     {
         $R = ($H * $V) / $C;

@@ -93,7 +93,7 @@
 
         <li class="header">TINGKAT RISIKO KEBAKARAN</li>
         <li><a href="#"><i class="fa fa-fax"></i> <span>Peta Zonasi</span></a></li>
-        <li><a href="#"><i class="fa fa-line-chart"></i> <span>Lihat Bentuk Grafik</span></a></li>
+        <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-line-chart"></i> <span>Lihat Bentuk Grafik</span></a></li>
         <li class="header">DATA PERMUKIMAN</li>        
         <li><a href="{{url('/lokasi-permukiman')}}"><i class="fa fa-plus-circle"></i> <span>Lokasi Permukiman</span></a></li>
         <li><a href="{{url('/skor-risiko-kebakaran')}}"><i class="fa fa-globe"></i> <span>Skor Risiko Kebakaran</span></a></li>

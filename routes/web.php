@@ -31,6 +31,8 @@ Route::middleware(['auth:users'])->group(function() {
 Route::get('/', 'Lokasi_Controller@index');
 Route::get('/lokasi-permukiman', 'Lokasi_Controller@displayDataLokasi');
 Route::get('/skor-risiko-kebakaran', 'Score_Controller@getScoreLokasi');
+Route::get('/grafik-tingkat-risiko', 'Score_Controller@displayChart');
+
 
 
 

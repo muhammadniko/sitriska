@@ -25,7 +25,20 @@
           <!-- /.box -->
         </div>
         <div class="col-md-6">
-            <!-- BAR CHART -->
+           <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Keterangan</h3>
+            </div>
+            <div class="box-body">
+                ..
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+             <!-- BAR CHART -->
     <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Kecamatan</h3>
@@ -83,23 +96,6 @@
     ]
     
     var pieOptions     = {
-      //Boolean - Whether we should show a stroke on each segment
-      segmentShowStroke    : true,
-      //String - The colour of each segment stroke
-      segmentStrokeColor   : '#fff',
-      //Number - The width of each segment stroke
-      segmentStrokeWidth   : 2,
-      //Number - The percentage of the chart that we cut out of the middle
-      percentageInnerCutout: 50, // This is 0 for Pie charts
-      //Number - Amount of animation steps
-      animationSteps       : 100,
-      //String - Animation easing effect
-      animationEasing      : 'easeOutBounce',
-      //Boolean - Whether we animate the rotation of the Doughnut
-      animateRotate        : true,
-      //Boolean - Whether we animate scaling the Doughnut from the centre
-      animateScale         : false,
-      //Boolean - whether to make the chart responsive to window resizing
       responsive           : true,
       // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
       maintainAspectRatio  : true,
@@ -108,7 +104,7 @@
     }
     //Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
-    pieChart.Doughnut(PieData, pieOptions)
+    pieChart.Pie(PieData, pieOptions)
      
     //-------------
     //- BAR CHART -

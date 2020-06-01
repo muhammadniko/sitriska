@@ -21,22 +21,24 @@ class Score extends Model
         return $this->belongsTo(RiskLevel::class,'tingkat_risiko');
     }
 
-    public static function getTotalTingkatRisiko($kecamatan)
+    public static function countTingkatRisiko($kecamatan = NULL, $level)
     {
-        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Tinggi
-        $risikoTinggi = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
-            $query->where('kecamatan', $kecamatan);
-        })->where('tingkat_risiko', 'Tinggi')->count();
+        if (empty($kecamatan)) {
+            $result = Score::where('tingkat_risiko', $level)->count();
+        } else {
+            $result = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
+                $query->where('kecamatan', $kecamatan);
+            })->where('tingkat_risiko', $level)->count();
+        }
         
-        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Sedang
-        $risikoSedang = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
-            $query->where('kecamatan', $kecamatan);
-        })->where('tingkat_risiko', 'Sedang')->count();
-        
-        // Menghitung Jumlah Lokasi yang memiliki tingkat risiko Rendah
-        $risikoRendah = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
-            $query->where('kecamatan', $kecamatan);
-        })->where('tingkat_risiko', 'Rendah')->count();
+        return $result;
+    }
+    
+    public static function getTotalTingkatRisiko($kecamatan = NULL)
+    {
+        $risikoTinggi = Score::countTingkatRisiko($kecamatan, 'Tinggi');
+        $risikoSedang = Score::countTingkatRisiko($kecamatan, 'Sedang');
+        $risikoRendah = Score::countTingkatRisiko($kecamatan, 'Rendah');
         
         $totalRisiko = [
             'Tinggi'=>$risikoTinggi,

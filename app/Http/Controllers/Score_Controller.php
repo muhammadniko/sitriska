@@ -22,8 +22,8 @@ class Score_Controller extends Controller
         $BanjarmasinSelatan = Score::getTotalTingkatRisiko('Banjarmasin Selatan');
         $BanjarmasinBarat = Score::getTotalTingkatRisiko('Banjarmasin Barat');
         $BanjarmasinTimur = Score::getTotalTingkatRisiko('Banjarmasin Timur');
-                
-        return view('guest.grafik-data', compact(['BanjarmasinUtara', 'BanjarmasinSelatan', 'BanjarmasinBarat', 'BanjarmasinTimur']));
+        $BanjarmasinAll = Score::getTotalTingkatRisiko();
+        return view('guest.grafik-data', compact(['BanjarmasinAll', 'BanjarmasinUtara', 'BanjarmasinSelatan', 'BanjarmasinBarat', 'BanjarmasinTimur']));
     }
 
     public function getScoreLokasi()

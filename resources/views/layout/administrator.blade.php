@@ -150,7 +150,7 @@
         <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-globe"></i> <span>Lokasi Permukiman</span></a></li>
 
         <li class="header">REPORT</li>        
-        <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-bar-chart"></i> <span>Data Bentuk Grafik</span></a></li>
+        <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-bar-chart"></i> <span>Data Bentuk Grafik</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

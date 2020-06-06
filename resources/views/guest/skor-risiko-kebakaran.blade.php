@@ -1,12 +1,12 @@
 @extends('layout.guest')
-@section('title', 'Skor Risiko Kebakaran - SI TRISKA')
+@section('title', 'Penilaian Risiko Kebakaran - SI TRISKA')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Skor Risiko Kebakaran
+        Penilaian Risiko Kebakaran
         <small>Berdasarkan hasil kalkulasi tingkat risiko</small>
       </h1>
       <ol class="breadcrumb">

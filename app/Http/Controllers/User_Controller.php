@@ -3,22 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Users;
-use Auth;
+use App\Score;
+use App\Lokasi;
+
 
 class User_Controller extends Controller
 {
-    public function show_login_page() 
+    
+    public function index()
+    {
+        $BanjarmasinAll = Score::getTotalTingkatRisiko();
+        $totalLokasi = Lokasi::getTotalLokasi();
+        return view('administrator.dashboard', compact('BanjarmasinAll', 'totalLokasi'));
+    }
+    
+    public function displayLoginPage() 
     {
         return view('administrator.login');
     }
 
-    public function show_dashboard_page()
-    {
-        return view('administrator.dashboard');
-    }
-
-    public function login_auth(Request $request) 
+    public function loginAuth(Request $request) 
     {
         $this->validate($request, [
             'username' => 'required',

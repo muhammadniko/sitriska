@@ -1,5 +1,5 @@
 @extends('layout.guest')
-@section('title', 'SI Triska - BPBD Kota Banjarmasin')
+@section('title', 'SI TRISKA - BPBD Kota Banjarmasin')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

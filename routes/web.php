@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/administrator/login', 'User_Controller@show_login_page')->middleware('guest');
-Route::post('/administrator/authenticate', 'User_Controller@login_auth');
+Route::get('/administrator/login', 'User_Controller@displayLoginPage')->middleware('guest');
+Route::post('/administrator/authenticate', 'User_Controller@loginAuth');
 
 Route::middleware(['auth:users'])->group(function() {
-    Route::get('/administrator', 'User_Controller@show_dashboard_page');
+    Route::get('/administrator', 'User_Controller@index');
     Route::get('/administrator/permukiman', 'Lokasi_Controller@displayDataLokasi');
     Route::post('/administrator/permukiman/add-new', 'Lokasi_Controller@saveDataLokasi');
     Route::post('/administrator/permukiman/update', 'Lokasi_Controller@updateDataLokasi');

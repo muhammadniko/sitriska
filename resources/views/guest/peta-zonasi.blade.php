@@ -10,7 +10,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div id="petaBanjarmasin" style="width:720px;height:400px;">Tidak Terhubung Ke Internet</div>
+        <div id="petaBanjarmasin" style="width:800px;height:520px;">Tidak Terhubung Ke Internet</div>
     </section>
 
     <!-- Main content -->
@@ -27,22 +27,20 @@
 <script>
 	function initialize() {  
         var map = new google.maps.Map(document.getElementById("petaBanjarmasin"), setPeta)
-        var list = @json($listOfLokasi)
-        
-        console.log(list)
+        var list = @json($listOfScore)
         
         list.forEach(function(item) {
-            var center = {lat: parseFloat(item.latitude), lng: parseFloat(item.langitude)}
+            var center = {lat: parseFloat(item.lokasi.latitude), lng: parseFloat(item.lokasi.langitude)}
             
             var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
+            strokeColor: item.risk_levels.color,
+            strokeOpacity: 0.35,
             strokeWeight: 2,
-            fillColor: '#FF0000',
+            fillColor: item.risk_levels.color,
             fillOpacity: 0.35,
             map: map,
             center: center,
-            radius: (item.luas_area*100)+235
+            radius: (item.lokasi.luas_area*100)+235
           })
         })
     }

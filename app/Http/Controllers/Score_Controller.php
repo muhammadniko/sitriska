@@ -18,8 +18,8 @@ class Score_Controller extends Controller
     
     public function displayPetaZonasi()
     {
-        $listOfLokasi = Lokasi::all();
-        return view('guest.peta-zonasi', compact('listOfLokasi'));
+        $listOfScore = Score::with('lokasi', 'riskLevels')->get();
+        return view('guest.peta-zonasi', compact('listOfScore'));
     }
     
     public function displayChart()

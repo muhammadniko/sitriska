@@ -146,8 +146,8 @@
                                         Apakah anda yakin ingin menghapus Data Permukiman ini ?
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batalkan</button>
-                                        <a href="/administrator/permukiman/remove/{{$lokasi->kode_pos}}"><button class="btn btn-danger">Hapus</button></a>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batalkan</button>
+                                        <a href="" id="delete_link"><button class="btn btn-danger">Hapus</button></a>
                                     </div>
                                 </div> <!-- /.modal-content -->
                             </div> <!-- /.modal-dialog -->
@@ -190,6 +190,11 @@
         $("#new_kelurahan").val(kelurahan)
         $("#new_kecamatan").val(kecamatan)
         $("#new_luas").val(luas)
+    })
+    
+    $(document).on('click', '#delete', function(){
+        var id = $(this).data('id')
+        $("#delete_link").attr("href", "/administrator/permukiman/remove/" + id)
     })
 </script>
 @endsection

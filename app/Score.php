@@ -58,7 +58,7 @@ class Score extends Model
 
     public static function getTingkatRisiko($R) 
     {
-        if (($R >= 36) && ($R <= 54)) {
+        if ($R > 36) {
             $tingkat_risiko = "Tinggi";
         } else if (($R >= 18) && ($R < 36)) {
             $tingkat_risiko = "Sedang";

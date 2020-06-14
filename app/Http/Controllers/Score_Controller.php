@@ -16,6 +16,12 @@ class Score_Controller extends Controller
         return view('administrator.tingkat-risiko', ['list_of_lokasi' => $list_of_lokasi]);
     }
     
+    public function displayPetaZonasi()
+    {
+        $listOfLokasi = Lokasi::all();
+        return view('guest.peta-zonasi', compact('listOfLokasi'));
+    }
+    
     public function displayChart()
     {
         $BanjarmasinUtara = Score::getTotalTingkatRisiko('Banjarmasin Utara');

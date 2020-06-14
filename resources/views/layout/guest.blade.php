@@ -19,6 +19,7 @@
   <![endif]-->
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+     @yield('head-script')
 </head>
 <body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
@@ -92,7 +93,7 @@
         <li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> <span>Halaman Depan</span></a></li>
 
         <li class="header">TINGKAT RISIKO KEBAKARAN</li>
-        <li><a href="#"><i class="fa fa-fax"></i> <span>Peta Zonasi</span></a></li>
+        <li><a href="{{url('/peta-zonasi')}}"><i class="fa fa-fax"></i> <span>Peta Zonasi</span></a></li>
         <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-line-chart"></i> <span>Lihat Bentuk Grafik</span></a></li>
         <li class="header">DATA PERMUKIMAN</li>        
         <li><a href="{{url('/lokasi-permukiman')}}"><i class="fa fa-plus-circle"></i> <span>Lokasi Permukiman</span></a></li>

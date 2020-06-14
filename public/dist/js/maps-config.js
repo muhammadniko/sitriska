@@ -1,6 +1,6 @@
 var setPeta = {
     center:new google.maps.LatLng(-3.319959, 114.594214),
-    zoom:15,
+    zoom:13,
     mapTypeId:google.maps.MapTypeId.ROADMAP
 }
 

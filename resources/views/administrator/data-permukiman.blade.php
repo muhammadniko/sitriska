@@ -88,7 +88,7 @@
                                                     Kode Pos : <input type="text" name="kodepos"> </br>
                                                     kelurahan : <input type="text" name="kelurahan"></br>
                                                     Kecamatan : <input type="text" name="kecamatan"></br>
-                                                    Luas Area : <input type="text" name="luasarea"></br>
+                                                    Luas Area : <input type="text" name="luasarea" id="luas"></br>
                                                     Latitude : <input type="text" name="lat" id="lat" readonly></br>
                                                     Langitude : <input type="text" name="lang" id="lng" readonly></br>
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->user_id }}">
@@ -168,7 +168,8 @@
         var map = new google.maps.Map(document.getElementById("petaBanjarmasin"), setPeta)
         
         google.maps.event.addListener(map, 'click', function(event) {
-            setMarker(map, event.latLng)
+            luas = $("#luas").val()
+            setArea(map, event.latLng, luas)
             var kordinat = event.latLng
             $("#lat").val(kordinat.lat())
             $("#lng").val(kordinat.lng())

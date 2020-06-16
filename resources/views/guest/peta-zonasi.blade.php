@@ -10,7 +10,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div id="petaBanjarmasin" style="width:800px;height:520px;">Tidak Terhubung Ke Internet</div>
+        <div id="petaBanjarmasin" style="width:100%;height:520px;">Tidak Terhubung Ke Internet</div>
     </section>
 
     <!-- Main content -->

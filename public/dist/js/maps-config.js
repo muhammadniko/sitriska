@@ -1,7 +1,8 @@
 var setPeta = {
     center:new google.maps.LatLng(-3.319959, 114.594214),
     zoom:13,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    disableDefaultUI: true
+    //mapTypeId:google.maps.MapTypeId.ROADMAP
 }
 
 function addMarker(map, lat, lang) {
@@ -40,10 +41,10 @@ function setArea(map, posisiTitik, luasArea) {
         area.setRadius((luasArea*100)+235)
     } else {
         area = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#EEEEEE',
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: '#FF0000',
+            fillColor: '#EEEEEE',
             fillOpacity: 0.35,
             map: map,
             center: posisiTitik,

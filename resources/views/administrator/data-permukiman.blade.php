@@ -27,16 +27,7 @@
                 <div class="box box-danger">
                     <div class="box-header">
                         <h3 class="box-title">Daftar Permukiman</h3>
-                
-                        <div class="box-tools">
-                            <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add">
+                        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-add">
                             Tambah Lokasi
                         </button>
                     </div> <!-- /.box-header -->
@@ -85,21 +76,41 @@
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    Kode Pos : <input type="text" name="kodepos"> </br>
-                                                    kelurahan : <input type="text" name="kelurahan"></br>
-                                                    Kecamatan : <input type="text" name="kecamatan"></br>
-                                                    Luas Area : <input type="text" name="luasarea" id="luas"></br>
-                                                    Latitude : <input type="text" name="lat" id="lat" readonly></br>
-                                                    Langitude : <input type="text" name="lang" id="lng" readonly></br>
+                                                    <div class="form-group">
+                                                        <label>Kode Pos</label>
+                                                        <input type="text" class="form-control" name="kodepos">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Kelurahan</label>
+                                                        <input type="text" class="form-control" name="kelurahan">
+                                                    </div>    
+                                                    <div class="form-group">
+                                                        <label>Kecamatan</label>
+                                                        <input type="text" class="form-control" name="kecamatan">
+                                                    </div>
+                                                    <label>Luas Area</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" name="luasarea" id="luas">
+                                                        <span class="input-group-addon"><b>km<sup>2</sup></b></span>
+                                                    </div><br>
+                                                    <div class="form-group">
+                                                        <label>Latitude</label>    
+                                                        <input type="text" class="form-control" name="lat" id="lat" readonly>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label>Langitude</label>
+                                                        <input type="text" class="form-control" name="lang" id="lng" readonly>
+                                                    </div>
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->user_id }}">
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <div id="petaBanjarmasin" style="width:580px;height:380px;"></div>
+                                                    <div id="petaBanjarmasin" style="width:100%;height:450px;"></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             <input type="submit" class="btn btn-primary" value="Tambahkan">
                                         </div>
                                     </form>
@@ -108,24 +119,41 @@
                         </div> <!-- /.modal -->
                     
                         <div class="modal fade" id="modal-edit">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-md">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <h4 class="modal-title">Ubah Data Lokasi Permukiman:</h4>
+                                        <h4 class="modal-title">Ubah Data Lokasi Permukiman</h4>
                                     </div>
                                     <form action = "/administrator/permukiman/update")}}" method="post">
                                         {{ csrf_field() }}
                                         <div class="modal-body">
-                                            Kode Pos : <input type="text" id="new_kode_pos" name="curent_kodepos" value="" readonly> <br>
-                                            Kecamatan : <input type="text" id="new_kecamatan" name="kecamatan_updated"> <br>
-                                            Kelurahan : <input type="text" id="new_kelurahan" name="kelurahan_updated"><br>
-                                            Luas Area : <input type="text" id="new_luas" name="luas_updated"><br>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Kode Pos</label>
+                                                        <input type="text" class="form-control" id="new_kode_pos" name="curent_kodepos" value="" readonly>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Kelurahan</label>
+                                                        <input type="text" class="form-control" id="new_kelurahan" name="kelurahan_updated">
+                                                    </div>    
+                                                    <div class="form-group">
+                                                        <label>Kecamatan</label>
+                                                        <input type="text" class="form-control" id="new_kecamatan" name="kecamatan_updated">
+                                                    </div>
+                                                    <label>Luas Area</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="new_luas" name="luas_updated">
+                                                        <span class="input-group-addon"><b>km<sup>2</sup></b></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             <input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
                                         </div>
                                     </form>

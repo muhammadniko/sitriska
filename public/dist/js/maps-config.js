@@ -53,6 +53,7 @@ function setArea(map, posisiTitik, luasArea) {
     }
 }
 
+
 function setInfoWindow(content,position,map) {
 	var infowindow = new google.maps.InfoWindow({
     	content: content,

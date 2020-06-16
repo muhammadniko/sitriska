@@ -198,6 +198,7 @@
         google.maps.event.addListener(map, 'click', function(event) {
             luas = $("#luas").val()
             setArea(map, event.latLng, luas)
+            
             var kordinat = event.latLng
             $("#lat").val(kordinat.lat())
             $("#lng").val(kordinat.lng())

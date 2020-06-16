@@ -31,30 +31,20 @@
 
         
         list.forEach(function(item) {
-            var center = {lat: parseFloat(item.lokasi.latitude), lng: parseFloat(item.lokasi.langitude)}
+            let center = {lat: parseFloat(item.lokasi.latitude), lng: parseFloat(item.lokasi.langitude)}
+            let color = item.risk_levels.color
+            let luas = item.lokasi.luas_area
             
-            var cityCircle = new google.maps.Circle({
-                strokeColor: item.risk_levels.color,
-                strokeOpacity: 0.35,
-                strokeWeight: 2,
-                fillColor: item.risk_levels.color,
-                fillOpacity: 0.35,
-                map: map,
-                center: center,
-                radius: (item.lokasi.luas_area*100)+235
-            })
+            let cityCircle = createCircle(map, center, color, luas)
             
-            var content = '<b>Kelurahan ' + item.lokasi.kelurahan + '</b>' +
+            let content = '<b>Kelurahan ' + item.lokasi.kelurahan + '</b>' +
                 '<br> Kecamatan ' + item.lokasi.kecamatan +
                 '<br> Luas Wilayah ' + item.lokasi.luas_area + ' KM<sup>2</sup>' +
                 '<br> Risiko Kebakaran ' + item.tingkat_risiko
             
-            var infoWindow = new google.maps.InfoWindow();
             google.maps.event.addListener(cityCircle, "click", function(e) {
-                infoWindow.setContent(content);
-                infoWindow.setPosition(this.getCenter());
-                infoWindow.open(map);
-            });
+                createInfoWindow(map, content, this.getCenter())
+            })
         })
     }
     

@@ -20,7 +20,7 @@
         Download Laporan Berdasarkan Kecamatan
         <form action="{{ url('/administrator/tingkat-risiko/export') }}" method="get">
             <select class="form-control" name="kecamatan">
-                <option value="All" selected> - Semua -</option>
+                <option value="All" selected disabled> - Pilih Kecamatan -</option>
                 <option value="Banjarmasin Utara">Banjarmasin Utara</option>
                 <option value="Banjarmasin Barat">Banjarmasin Barat</option>
                 <option value="Banjarmasin Selatan">Banjarmasin Selatan</option>

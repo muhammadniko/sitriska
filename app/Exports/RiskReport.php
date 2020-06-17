@@ -21,11 +21,20 @@ class RiskReport implements FromView
     {
         $kecamatan = $this->kecamatan;
         $level = $this->level;
-        $listOfScore = Score::where('tingkat_risiko', $this->level)
-        ->whereHas('lokasi', function ($query) use ($kecamatan) {
-            $query->where('kecamatan', $kecamatan);
-        })->get();
+        if ($level = "All") {
+            $result = Score::whereHas('lokasi', function ($query) use ($kecamatan) {
+                $query->where('kecamatan', $kecamatan);
+            })->get();
+        } else {
+            $result = Score::where('tingkat_risiko', $this->level)
+            ->whereHas('lokasi', function ($query) use ($kecamatan) {
+                $query->where('kecamatan', $kecamatan);
+            })->get();
+        }
         
-        return view ('layout.report-risk', compact('listOfScore'));
+        $listOfScore = $result;
+        $header = strtoupper($kecamatan);
+        
+        return view ('layout.report-risk', compact(['listOfScore', 'header']));
     }
 }

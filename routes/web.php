@@ -22,9 +22,12 @@ Route::middleware(['auth:users'])->group(function() {
     Route::post('/administrator/permukiman/add-new', 'Lokasi_Controller@saveDataLokasi');
     Route::post('/administrator/permukiman/update', 'Lokasi_Controller@updateDataLokasi');
     Route::get('/administrator/permukiman/remove/{kode_pos}', 'Lokasi_Controller@removeDataLokasi');
+    Route::get('/administrator/permukiman/export/{kecamatan}', 'Lokasi_Controller@exportDataLokasi');
     Route::get('/administrator/tingkat-risiko',  'Score_Controller@index');
     Route::get('/administrator/tingkat-risiko/kalkulasi-skor', 'Score_Controller@saveScoreLokasi');
     Route::get('/administrator/tingkat-risiko/hasil-kalkulasi', 'Score_Controller@getScoreLokasi');
+    Route::get('/administrator/tingkat-risiko/export', 'Score_Controller@exportScoreLokasi');
+    Route::get('/administrator/report', 'Score_Controller@displayReport');
     Route::get('/administrator/logout', 'User_Controller@logout');
 });
 

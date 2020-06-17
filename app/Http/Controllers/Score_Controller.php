@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RiskReport;
 use App\Lokasi;
 use App\Score;
 
@@ -30,6 +32,17 @@ class Score_Controller extends Controller
         $BanjarmasinTimur = Score::getTotalTingkatRisiko('Banjarmasin Timur');
         $BanjarmasinAll = Score::getTotalTingkatRisiko();
         return view('guest.grafik-data', compact(['BanjarmasinAll', 'BanjarmasinUtara', 'BanjarmasinSelatan', 'BanjarmasinBarat', 'BanjarmasinTimur']));
+    }
+    
+    public function displayReport()
+    {
+        return view('administrator.report');
+    }
+    
+    public function exportScoreLokasi(Request $request)
+    {
+        $file_name = "data_risiko_kebakaran_". $request->tingkat_risiko ."_". $request->kecamatan ."_". now() .".xlsx";
+        return Excel::download(new RiskReport($request->kecamatan, $request->tingkat_risiko), $file_name);
     }
 
     public function getScoreLokasi()

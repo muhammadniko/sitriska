@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\LokasiReport;
 use App\Score;
 use App\Lokasi;
+
 
 class Lokasi_Controller extends Controller
 {
@@ -20,6 +23,11 @@ class Lokasi_Controller extends Controller
         $viewFile = (Auth::check()) ? 'administrator.data-permukiman' : 'guest.data-permukiman';
 
         return view ($viewFile, compact('listOfLokasi'));
+    }
+    
+    public function exportDataLokasi($kecamatan)
+    {
+        return Excel::download(new LokasiReport($kecamatan), 'lokasi_permukiman.xlsx');
     }
 
     public function saveDataLokasi(Request $request)

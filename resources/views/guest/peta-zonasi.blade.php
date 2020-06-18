@@ -8,16 +8,31 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        
-    </section>
-
     <!-- Main content -->
-    <section class="content container-fluid">
-        <div id="petaBanjarmasin" style="width:100%;height:520px;">Tidak Terhubung Ke Internet</div>
-    </section>
-    <!-- /.content -->
+    <div id="petaBanjarmasin" style="width:100%;height:520px;">Tidak Terhubung Ke Internet</div>
+    <div class="legends-box" style="position: relative;">
+        <div class="legends navbar-fixed-bottom bg-primary" style="padding: 10px; position: absolute!important;">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-xs-12 text-center"><b>Indeks Tingkat Risiko</b></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 bg-green" style="height: 20px;"></div>
+                        <div class="col-xs-4 bg-yellow" style="height: 20px;"></div>
+                        <div class="col-xs-4 bg-red" style="height: 20px;"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 text-center">Rendah</div>
+                        <div class="col-xs-4 text-center">Sedang</div>
+                        <div class="col-xs-4 text-center">Tinggi</div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <p class="text-right" style="padding: 15px;">Klik area permukiman pada Peta untuk informasi lebih detail</p>
+                </div>
+        </div>
+    </div>
+       
 </div>
 <!-- /.content-wrapper -->
 @endsection

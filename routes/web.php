@@ -21,7 +21,7 @@ Route::middleware(['auth:users'])->group(function() {
     Route::get('/administrator/permukiman', 'Lokasi_Controller@displayDataLokasi');
     Route::post('/administrator/permukiman/add-new', 'Lokasi_Controller@saveDataLokasi');
     Route::post('/administrator/permukiman/update', 'Lokasi_Controller@updateDataLokasi');
-    Route::get('/administrator/permukiman/remove/{kode_pos}', 'Lokasi_Controller@removeDataLokasi');
+    Route::get('/administrator/permukiman/remove/{kode_lokasi}', 'Lokasi_Controller@removeDataLokasi');
     Route::get('/administrator/permukiman/export/{kecamatan}', 'Lokasi_Controller@exportDataLokasi');
     Route::get('/administrator/tingkat-risiko',  'Score_Controller@index');
     Route::get('/administrator/tingkat-risiko/kalkulasi-skor', 'Score_Controller@saveScoreLokasi');

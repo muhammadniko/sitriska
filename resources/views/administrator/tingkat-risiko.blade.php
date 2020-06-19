@@ -33,7 +33,7 @@
                                                 <select class="form-control" id="lokasi" name="select_lokasi">
                                                     <option disabled selected>- Pilih Lokasi Permukiman -</option>
                                                     @foreach ($list_of_lokasi as $lokasi)
-                                                    <option value="{{ $lokasi->kode_pos }}"> {{ $lokasi->kelurahan }} </option>
+                                                    <option value="{{ $lokasi->kode_lokasi }}"> {{ $lokasi->kelurahan }} </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -210,7 +210,7 @@
                                 </li> <!-- END timeline item -->
                             </ul>
                               
-                            <input type="hidden" name="kode_pos" value="" id="kode_pos">
+                            <input type="hidden" name="kode_lokasi" value="" id="kode_lokasi">
                             <input type="submit" class="btn btn-primary form-control" name="hitung" value="KALKULASI TINGKAT RISIKO">
                         </div>
                     </div>                    
@@ -226,7 +226,7 @@
 $("#next").click(function(){
     var lokasi = $("#lokasi option:selected").val()
     var lokasi_text = $("#lokasi option:selected").text()
-    $("#kode_pos").val(lokasi)
+    $("#kode_lokasi").val(lokasi)
     $("#wilayah").html(lokasi_text)
     $("#wilayah_title").html('<i class="icon fa fa-info"></i> ' + lokasi_text)
     $("#indikator").show()

@@ -69,7 +69,7 @@ class Score_Controller extends Controller
 
     public function saveScoreLokasi(Request $request)
     {
-        $kode_pos = $request->kode_pos;
+        $idLokasi = $request->kode_lokasi;
         
         // Mengambil skor indikator untuk variabel Hazard (H)
         $H = array(
@@ -101,14 +101,14 @@ class Score_Controller extends Controller
         $total_C = array_sum($C);
 
         // Proses perhitungan besaran nilai risiko kebakaran
-        $besaran_risiko = Score::getBesaranRisiko($total_H, $total_V, $total_C);
+        $besaran_risiko = round(Score::getBesaranRisiko($total_H, $total_V, $total_C), 2);
     
         // Penentuan Kelas dan Zonasi tingkat risiko kebakaran
         $tingkat_risiko = Score::getTingkatRisiko($besaran_risiko);
 
         // Simpan Data Score ke dalam database
         Score::create([
-            'kode_pos'              => $kode_pos,
+            'kode_lokasi'           => $idLokasi,
             'tingkat_risiko'        => $tingkat_risiko,
 
             'skor_ancaman'          => $total_H,

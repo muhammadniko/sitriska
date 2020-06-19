@@ -46,8 +46,8 @@
                             @foreach ($listOfLokasi as $lokasi)
                             <tr>
                                 <td>
-                                    <button id="edit" data-id="{{$lokasi->kode_pos}}" data-kelurahan="{{$lokasi->kelurahan}}" data-kecamatan="{{$lokasi->kecamatan}}" data-luas="{{$lokasi->luas_area}}" data-toggle="modal" data-target="#modal-edit" class="btn btn-primary btn-sm">Ubah</button>
-                                    <button id="delete" data-id="{{$lokasi->kode_pos}}" data-toggle="modal" data-target="#modal-delete"  class="btn btn-danger btn-sm">Hapus</button></a>
+                                    <button id="edit" data-id="{{$lokasi->kode_lokasi}}" data-kodepos="{{$lokasi->kode_pos}}" data-kelurahan="{{$lokasi->kelurahan}}" data-kecamatan="{{$lokasi->kecamatan}}" data-luas="{{$lokasi->luas_area}}" data-toggle="modal" data-target="#modal-edit" class="btn btn-primary btn-sm">Ubah</button>
+                                    <button id="delete" data-id="{{$lokasi->kode_lokasi}}" data-toggle="modal" data-target="#modal-delete"  class="btn btn-danger btn-sm">Hapus</button></a>
                                 </td>
                                 <td>{{$lokasi->kode_pos}}</td>
                                 <td>{{$lokasi->kelurahan}}</td>
@@ -134,7 +134,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Kode Pos</label>
-                                                        <input type="text" class="form-control" id="new_kode_pos" name="curent_kodepos" value="" readonly>
+                                                        <input type="text" class="form-control" id="new_kode_pos" name="kodepos_updated" value="">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Kelurahan</label>
@@ -154,6 +154,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <input type="hidden" id="kode_lokasi" name="kode_lokasi">
                                             <input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
                                         </div>
                                     </form>
@@ -212,10 +213,13 @@
 <script>
     $(document).on('click', '#edit', function(){
         var id = $(this).data('id')
+        var kode_pos = $(this).data('kodepos')
         var kelurahan = $(this).data('kelurahan')
         var kecamatan = $(this).data('kecamatan')
         var luas = $(this).data('luas')
-        $("#new_kode_pos").val(id)
+        
+        $("#kode_lokasi").val(id)
+        $("#new_kode_pos").val(kode_pos)
         $("#new_kelurahan").val(kelurahan)
         $("#new_kecamatan").val(kecamatan)
         $("#new_luas").val(luas)

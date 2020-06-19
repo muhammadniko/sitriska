@@ -51,21 +51,23 @@ class Lokasi_Controller extends Controller
     public function updateDataLokasi(Request $request)
     {
         $dataLokasi = [
+            'kode_pos'  => $request->kodepos_updated,
             'kecamatan' => $request->kecamatan_updated,
             'kelurahan' => $request->kelurahan_updated,
+            'luas_area' => $request->luas_updated,
         ];
 
-        $kodePos = $request->curent_kodepos;
+        $idLokasi = $request->kode_lokasi;
 
-        $lokasi = Lokasi::find($kodePos);
+        $lokasi = Lokasi::find($idLokasi);
         $lokasi->update($dataLokasi);
 
         return back();
     }
 
-    public function removeDataLokasi($kodePos)
+    public function removeDataLokasi($idLokasi)
     {
-        $lokasi = Lokasi::find($kodePos);
+        $lokasi = Lokasi::find($idLokasi);
         $lokasi->score()->delete();
         $lokasi->delete();
 

@@ -13,7 +13,7 @@ class Score extends Model
 
     public function lokasi()
     {
-        return $this->belongsTo(Lokasi::class,'kode_pos');
+        return $this->belongsTo(Lokasi::class,'kode_lokasi');
     }
 
     public function riskLevels()

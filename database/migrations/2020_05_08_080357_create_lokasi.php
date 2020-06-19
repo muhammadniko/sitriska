@@ -14,7 +14,8 @@ class CreateLokasi extends Migration
     public function up()
     {
         Schema::create('T_Lokasi', function (Blueprint $table) {
-            $table->string('kode_pos', 8)->primary();
+            $table->increments('kode_lokasi');
+            $table->string('kode_pos', 8);
             $table->string('user_id', 4);
             $table->string('kelurahan', 32);
             $table->string('kecamatan', 32);

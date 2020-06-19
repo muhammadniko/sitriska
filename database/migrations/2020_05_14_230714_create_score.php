@@ -15,7 +15,7 @@ class CreateScore extends Migration
     {
         Schema::create('T_Score', function (Blueprint $table) {
             $table->increments('kode_skor');
-            $table->string('kode_pos', 8);
+            $table->integer('kode_lokasi');
             $table->string('tingkat_risiko', 32);
             $table->string('skor_ancaman', 2);
             $table->string('skor_kerentanan', 2);

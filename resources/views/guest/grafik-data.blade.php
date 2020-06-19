@@ -3,19 +3,14 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      Grafik Tingkat Risiko Kebakaran Permukiman
-    </section>
-
     <!-- Main content -->
     <section class="content container-fluid">
     <div class="row">
         <div class="col-md-6">
             <!-- DONUT CHART -->
-          <div class="box box-danger">
+          <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Kota Banjarmasin</h3>
+              <h3 class="box-title">Risiko Kebakaran Permukiman Kota Banjarmasin</h3>
             </div>
             <div class="box-body">
               <canvas id="pieChart" style="height:250px"></canvas>
@@ -25,12 +20,35 @@
           <!-- /.box -->
         </div>
         <div class="col-md-6">
-           <div class="box box-danger">
+           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Keterangan</h3>
             </div>
             <div class="box-body">
-                ..
+                <br>
+                <table class="table">
+                    <tr>
+                        <td>Besaran Risiko (R)</td>
+                    </tr>
+                    <tr>
+                        <td>1-18</td>
+                        <td>Risiko Kebakaran Rendah</td>
+                        <td class="bg-green">  </td>
+                    </tr>
+                    <tr>
+                        <td>19 - 36</td>
+                        <td>Risiko Kebakaran Sedang</td>
+                        <td class="bg-yellow">  </td>
+                    </tr>
+                    <tr>
+                        <td>37 - 54</td>
+                        <td>Risiko Kebakaran Tinggi</td>
+                        <td class="bg-red">  </td>
+                    </tr>
+                </table>
+                <br><br>
+                <b>Total Wilayah terdaftar : {{ $jumlahLokasi }} </b><br>
+                <b>Total Wilayah yang telah dikalkulasi : {{ $jumlahPenilaian }}</b>
             </div>
             <!-- /.box-body -->
           </div>
@@ -39,9 +57,9 @@
     <div class="row">
         <div class="col-md-12">
              <!-- BAR CHART -->
-    <div class="box box-success">
+    <div class="box box-solid">
         <div class="box-header with-border">
-          <h3 class="box-title">Kecamatan</h3>
+          <h3 class="box-title">Risiko Kebakaran Permukiman Per-Kecamatan</h3>
         </div>
         <div class="box-body">
           <div class="chart">
@@ -111,7 +129,7 @@
     //-------------
     
     var areaChartData = {
-      labels  : ['Banjarmasin Utara', 'Banjarmasin Selatan', 'Banjarmasin Timur', 'Banjarmasin Barat'],
+      labels  : ['Banjarmasin Utara', 'Banjarmasin Selatan', 'Banjarmasin Timur', 'Banjarmasin Barat', 'Banjarmasin Tengah'],
       datasets: [
         {
           label               : 'Tingkat Risiko Tinggi',
@@ -122,7 +140,8 @@
             {{ $BanjarmasinUtara['Tinggi'] }},
             {{ $BanjarmasinSelatan['Tinggi'] }},
             {{ $BanjarmasinTimur['Tinggi'] }},
-            {{ $BanjarmasinBarat['Tinggi'] }}
+            {{ $BanjarmasinBarat['Tinggi'] }},
+            {{ $BanjarmasinTengah['Tinggi'] }},
           ]
         },
         {
@@ -134,7 +153,8 @@
             {{ $BanjarmasinUtara['Sedang'] }},
             {{ $BanjarmasinSelatan['Sedang'] }},
             {{ $BanjarmasinTimur['Sedang'] }},
-            {{ $BanjarmasinBarat['Sedang'] }}
+            {{ $BanjarmasinBarat['Sedang'] }},
+            {{ $BanjarmasinTengah['Sedang'] }},
           ]
         },
         {
@@ -146,7 +166,8 @@
             {{ $BanjarmasinUtara['Rendah'] }},
             {{ $BanjarmasinSelatan['Rendah'] }},
             {{ $BanjarmasinTimur['Rendah'] }},
-            {{ $BanjarmasinBarat['Rendah'] }}
+            {{ $BanjarmasinBarat['Rendah'] }},
+            {{ $BanjarmasinTengah['Rendah'] }},
           ]
         }
       ]

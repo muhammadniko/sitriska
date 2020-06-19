@@ -46,7 +46,7 @@
       <div class="row">
         <div class="col-xs-8">
           <label>
-            <a href="#">Lupa Password ?</a><br>
+            <a href="#"></a><br>
           </label>
         </div>
         <!-- /.col -->
@@ -59,7 +59,7 @@
   </div>
   <!-- /.login-box-body -->
   </br>
-  <p align="center">BPBD Kota Banjarmasin</p>
+  <p align="center"><b>BPBD Kota Banjarmasin</b></p>
 </div>
 <!-- /.login-box -->
 

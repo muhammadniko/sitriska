@@ -28,7 +28,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{url('/')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>GIS</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -45,27 +45,8 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- Inner Menu: contains the notifications -->
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <!-- end notification -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
+          <li>
+            <a href=""><b>{{date("l, j F Y")}}</b></a>
           </li>
         </ul>
       </div>
@@ -90,18 +71,18 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> <span>Halaman Depan</span></a></li>
+        <li><a href="{{url('/')}}"><i class="fa fa-home"></i> <span>Halaman Depan</span></a></li>
 
         <li class="header">TINGKAT RISIKO KEBAKARAN</li>
-        <li><a href="{{url('/peta-zonasi')}}"><i class="fa fa-fax"></i> <span>Peta Zonasi</span></a></li>
-        <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-line-chart"></i> <span>Lihat Bentuk Grafik</span></a></li>
+        <li><a href="{{url('/peta-zonasi')}}"><i class="fa fa-map-marker"></i> <span>Peta Risiko Kebakaran</span></a></li>
+        <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-bar-chart"></i> <span>Lihat Bentuk Grafik</span></a></li>
         <li class="header">DATA PERMUKIMAN</li>        
-        <li><a href="{{url('/lokasi-permukiman')}}"><i class="fa fa-plus-circle"></i> <span>Lokasi Permukiman</span></a></li>
-        <li><a href="{{url('/skor-risiko-kebakaran')}}"><i class="fa fa-globe"></i> <span>Penilaian Risiko Kebakaran</span></a></li>
+        <li><a href="{{url('/lokasi-permukiman')}}"><i class="fa fa-book"></i> <span>Data Wilayah Permukiman</span></a></li>
+        <li><a href="{{url('/skor-risiko-kebakaran')}}"><i class="fa fa-book"></i> <span>Penilaian Risiko Kebakaran</span></a></li>
 
         <li class="header">Lainnya</li>
-        <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Metode Analisis</span></a></li>        
-        <li><a href="#"><i class="fa fa-bar-chart"></i> <span>Tentang</span></a></li>
+        <li><a href="#"><i class="fa fa-code-fork"></i> <span>Metodologi</span></a></li>        
+        <li><a href="#"><i class="fa fa-get-pocket"></i> <span>Tentang</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

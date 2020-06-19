@@ -15,9 +15,4 @@ class Lokasi extends Model
     {
         return $this->hasMany(Score::class, 'kode_pos');
     }
-    
-    public static function getTotalLokasi()
-    {
-        return Lokasi::count();
-    }
 }

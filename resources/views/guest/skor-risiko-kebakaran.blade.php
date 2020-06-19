@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Penilaian Risiko Kebakaran
+        Tingkat Risiko Kebakaran
         <small>Berdasarkan hasil kalkulasi tingkat risiko</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> SI TRISKA</a></li>
-        <li class="active">Data Permukiman</li>
+        <li class="active">Tingkat Risiko Kebakaran</li>
       </ol>
     </section>
 
@@ -21,8 +21,7 @@
         <div class="col-xs-12">
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Daftar Permukiman</h3>
-
+              <h3 class="box-title">Hasil Penilaian Risiko</h3>
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -37,15 +36,15 @@
             <div class="box-body table-responsive">
               <table class="table table-hover table-bordered">
                 <tr>
-                  <th>Tanggal Entry</th>
-                  <th>Kelurahan</th>
-                  <th class="align-middle">Kecamatan</th>
-                  <th>Besaran </br> Bahaya (H)</th>
-                  <th>Besaran </br> Kerentanan (V)</th>
-                  <th>Besaran </br> Ketahanan (C)</th>
-                  <th>Besaran </br> Risiko (R)</th>
-                  <th>Tingkat Risiko</th>
-                  <th>Zonasi</th>
+                  <th class="text-center">Tanggal Entry</th>
+                  <th class="text-center">Kelurahan</th>
+                  <th class="text-center">Kecamatan</th>
+                  <th class="text-center">Besaran </br> Bahaya (H)</th>
+                  <th class="text-center">Besaran </br> Kerentanan (V)</th>
+                  <th class="text-center">Besaran </br> Ketahanan (C)</th>
+                  <th class="text-center">Besaran </br> Risiko (R)</th>
+                  <th class="text-center">Tingkat Risiko</th>
+                  <th class="text-center">Zonasi</th>
                 </tr>
                 <!-- Ambil Data Score -->
                 @foreach ($listOfScore as $score)

@@ -1,4 +1,6 @@
 @extends('layout.administrator')
+@section('title', 'Administrator - SI TRISKA')
+
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -23,12 +25,12 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{ $totalLokasi }}</h3>
+              <h3>{{ $jumlahLokasi }}</h3>
 
               <p>Wilayah permukiman yang telah terdaftar</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-globe"></i>
             </div>
             <a href="#" class="small-box-footer">Tambah Lokasi Permukiman <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -43,7 +45,7 @@
               <p>Permukiman dengan risiko kebakaran Rendah</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="fa fa-check"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -58,7 +60,7 @@
               <p>Permukiman dengan risiko kebakaran Sedang</p>
             </div>
             <div class="icon">
-              <i class="ion ion-person-add"></i>
+              <i class="fa fa-check"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -73,7 +75,7 @@
               <p>Permukiman dengan risiko kebakaran Tinggi</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="fa fa-warning"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>

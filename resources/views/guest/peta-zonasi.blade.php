@@ -1,5 +1,5 @@
 @extends('layout.guest')
-@section('title', 'SI TRISKA - BPBD Kota Banjarmasin')
+@section('title', 'Peta Zonasi Tingkat Risiko Kebakaran - SI TRISKA')
     
 @section('head-script')
     <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -14,7 +14,7 @@
         <div class="legends navbar-fixed-bottom bg-primary" style="padding: 10px; position: absolute!important;">
                 <div class="col-md-3">
                     <div class="row">
-                        <div class="col-xs-12 text-center"><b>Indeks Tingkat Risiko</b></div>
+                        <div class="col-xs-12 text-center"><b>Tingkat Risiko Kebakaran</b></div>
                     </div>
                     <div class="row">
                         <div class="col-xs-4 bg-green" style="height: 20px;"></div>

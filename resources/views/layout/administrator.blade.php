@@ -28,7 +28,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{url('administrator')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>GIS</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -44,42 +44,22 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- Inner Menu: contains the notifications -->
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <!-- end notification -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
+        <li>
+            <a href=""><b>{{date("l, j F Y")}}</b></a>
           </li>
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{ url('dist/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+              <img src="{{ url('dist/img/logo.png') }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{ Auth::user()->nama }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{ url('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ url('dist/img/logo.png') }}" class="img-circle" alt="User Image">
 
                 <p>
                 {{ Auth::user()->nama }}
@@ -117,7 +97,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ url('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ url('dist/img/logo.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->nama }}</p>
@@ -143,15 +123,14 @@
         <li><a href="{{url('administrator')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
         <li class="header">TINGKAT RISIKO KEBAKARAN</li>
-        <li><a href="#"><i class="fa fa-fax"></i> <span>Indikator & Kriteria</span></a></li>
         <li><a href="{{url('administrator/tingkat-risiko')}}"><i class="fa fa-line-chart"></i> <span>Kalkukasi Tingkat Risiko</span></a></li>
         <li><a href="{{url('administrator/tingkat-risiko/hasil-kalkulasi')}}"><i class="fa fa-fax"></i> <span>Lihat Hasil Kalkulasi</span></a></li>
         <li class="header">DATA PERMUKIMAN</li>        
         <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-plus-circle"></i> <span>Tambah Permukiman</span></a></li>
-        <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-globe"></i> <span>Lokasi Permukiman</span></a></li>
+        <li><a href="{{url('administrator/permukiman')}}"><i class="fa fa-globe"></i> <span>Wilayah Permukiman</span></a></li>
 
         <li class="header">REPORT</li>
-        <li><a href="{{url('administrator/report')}}"><i class="fa fa-fax"></i> <span>Download Data Laporan</span></a></li>
+        <li><a href="{{url('administrator/report')}}"><i class="fa fa-fax"></i> <span>Export Data Laporan</span></a></li>
         <li><a href="{{url('/grafik-tingkat-risiko')}}"><i class="fa fa-bar-chart"></i> <span>Data Bentuk Grafik</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->

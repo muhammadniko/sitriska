@@ -20,9 +20,10 @@ class Lokasi_Controller extends Controller
     public function displayDataLokasi()
     {
         $listOfLokasi = Lokasi::with(['score'])->get();
+        $jumlahLokasi = Lokasi::count();
         $viewFile = (Auth::check()) ? 'administrator.data-permukiman' : 'guest.data-permukiman';
 
-        return view ($viewFile, compact('listOfLokasi'));
+        return view ($viewFile, compact(['listOfLokasi','jumlahLokasi']));
     }
     
     public function exportDataLokasi($kecamatan)

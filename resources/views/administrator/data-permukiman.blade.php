@@ -12,7 +12,7 @@
     <section class="content-header">
         <h1>
             Permukiman
-            <small>12 Permukiman Terdaftar</small>
+            <small>{{ $jumlahLokasi }} Permukiman Terdaftar</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> SI TRISKA</a></li>
@@ -26,7 +26,7 @@
             <div class="col-xs-12">
                 <div class="box box-danger">
                     <div class="box-header">
-                        <h3 class="box-title">Daftar Permukiman</h3>
+                        <h3 class="box-title">Daftar Wilayah</h3>
                         <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-add">
                             Tambah Lokasi
                         </button>
@@ -53,7 +53,7 @@
                                 <td>{{$lokasi->kelurahan}}</td>
                                 <td>{{$lokasi->kecamatan}}</td>
                                 <td>{{$lokasi->latitude}}, {{$lokasi->langitude}}</td>
-                                <td>{{$lokasi->luas_area}}KM<sup>2</sup></td>
+                                <td>{{$lokasi->luas_area}} KM<sup>2</sup></td>
                                 <td>
                                     @foreach ($lokasi->score as $score)
                                         {{$score->tingkat_risiko}}

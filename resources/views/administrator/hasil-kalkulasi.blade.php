@@ -7,7 +7,7 @@
     <section class="content-header">
       <h1>
         Hasil Kalkulasi
-        <small>12 Permukiman Terdaftar</small>
+        <small>{{ $jumlahPenilaian }} Permukiman Telah dikalkulasi</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> SI TRISKA</a></li>

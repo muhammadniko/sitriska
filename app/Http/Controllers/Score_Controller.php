@@ -30,8 +30,22 @@ class Score_Controller extends Controller
         $BanjarmasinSelatan = Score::getTotalTingkatRisiko('Banjarmasin Selatan');
         $BanjarmasinBarat = Score::getTotalTingkatRisiko('Banjarmasin Barat');
         $BanjarmasinTimur = Score::getTotalTingkatRisiko('Banjarmasin Timur');
+        $BanjarmasinTengah = Score::getTotalTingkatRisiko('Banjarmasin Tengah');
         $BanjarmasinAll = Score::getTotalTingkatRisiko();
-        return view('guest.grafik-data', compact(['BanjarmasinAll', 'BanjarmasinUtara', 'BanjarmasinSelatan', 'BanjarmasinBarat', 'BanjarmasinTimur']));
+        $jumlahLokasi = Lokasi::count();
+        $jumlahPenilaian = Score::count();
+        
+        return view('guest.grafik-data',
+            compact(['BanjarmasinAll',
+                'BanjarmasinUtara',
+                'BanjarmasinSelatan',
+                'BanjarmasinBarat',
+                'BanjarmasinTimur',
+                'BanjarmasinTengah',
+                'jumlahLokasi',
+                'jumlahPenilaian',
+            ])
+        );
     }
     
     public function displayReport()
@@ -48,8 +62,9 @@ class Score_Controller extends Controller
     public function getScoreLokasi()
     {
         $listOfScore = Score::with('lokasi', 'riskLevels')->get();
+        $jumlahPenilaian = Score::count();
         $viewFile = (Auth::check()) ? 'administrator.hasil-kalkulasi' : 'guest.skor-risiko-kebakaran';
-        return view($viewFile, compact('listOfScore'));
+        return view($viewFile, compact(['listOfScore','jumlahPenilaian']));
     }
 
     public function saveScoreLokasi(Request $request)

@@ -1,5 +1,5 @@
 @extends('layout.guest')
-@section('title', 'Lokasi Permukiman - SI TRISKA')
+@section('title', 'Wilayah Permukiman - SI TRISKA')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -7,7 +7,7 @@
     <section class="content-header">
       <h1>
         Permukiman
-        <small>12 Permukiman Terdaftar</small>
+        <small>{{ $jumlahLokasi }} Permukiman Terdaftar</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> SI TRISKA</a></li>
@@ -21,7 +21,7 @@
         <div class="col-xs-12">
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Daftar Permukiman</h3>
+              <h3 class="box-title">Daftar Wilayah</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm hidden-xs" style="width: 150px;">

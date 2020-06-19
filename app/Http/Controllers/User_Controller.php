@@ -15,8 +15,8 @@ class User_Controller extends Controller
     public function index()
     {
         $BanjarmasinAll = Score::getTotalTingkatRisiko();
-        $totalLokasi = Lokasi::getTotalLokasi();
-        return view('administrator.dashboard', compact('BanjarmasinAll', 'totalLokasi'));
+        $jumlahLokasi = Lokasi::count();
+        return view('administrator.dashboard', compact('BanjarmasinAll', 'jumlahLokasi'));
     }
     
     public function displayLoginPage() 

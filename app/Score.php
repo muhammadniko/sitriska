@@ -60,9 +60,9 @@ class Score extends Model
     {
         if ($R > 36) {
             $tingkat_risiko = "Tinggi";
-        } else if (($R >= 18) && ($R < 36)) {
+        } else if (($R > 18) && ($R <= 36)) {
             $tingkat_risiko = "Sedang";
-        } else if (($R >= 1) && ($R < 18)) {
+        } else if (($R >= 1) && ($R <= 18)) {
             $tingkat_risiko = "Rendah";
         } else {
             $tingkat_risiko = "Tidak Valid";

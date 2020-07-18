@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class UsersSeeder extends Seeder
             'password' => '$2y$10$LVV6vC/yMvO1Nih0F7V3d.7OsR8EeZka0dld6rBYJtA3IuZVGE3W6',
             'email' => 'admin@admin.com',
             'nama' => 'Administrator',
-            'remember_token' => NULL)
+            'remember_token' => NULL,
         ]);
     }
 }

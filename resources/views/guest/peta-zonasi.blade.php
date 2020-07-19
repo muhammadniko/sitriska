@@ -2,7 +2,7 @@
 @section('title', 'Peta Zonasi Tingkat Risiko Kebakaran - SI TRISKA')
     
 @section('head-script')
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
 @endsection
 
 @section('content')

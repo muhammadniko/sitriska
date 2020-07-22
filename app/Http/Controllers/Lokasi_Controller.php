@@ -19,7 +19,7 @@ class Lokasi_Controller extends Controller
 
     public function displayDataLokasi()
     {
-        $listOfLokasi = Lokasi::with(['score'])->get();
+        $listOfLokasi = Lokasi::with(['score'])->orderBy('kecamatan', 'DESC')->get();
         $jumlahLokasi = Lokasi::count();
         $viewFile = (Auth::check()) ? 'administrator.data-permukiman' : 'guest.data-permukiman';
 

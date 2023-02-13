@@ -7,73 +7,32 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## About SI-TRISKA
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+SI-TRISKA (Sistem Informasi Geografis Tingkat Risiko Kebakaran) adalah sebuah aplikasi WebGIS yang berguna untuk memetakan zonasi tingkat risiko kebakaran permukiman di kota banjarmasin. Aplikasi ini dikembangkan menggunakan framework Laravel 7 dan Google Maps API. Sementara ini fitur yang ada pada SI-TRISKA yaitu :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Kalkulasi besaran tingkat risiko kebakaran pada suatu permukiman
+- Menampilkan zonasi tingkat risiko kebakaran permukiman pada tampilan map digital
+- Membuat report besaran tingkat risiko kebakaran pada permukiman
+- Menampilkan data tingkat risiko kebakaran permukiman dalam bentuk grafik.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+metode yang digunakan dan semua fitur yang ada masih perlu dikembangkan lagi.
 
-## Learning Laravel
+## How to Install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+1. Download atau clone sourcecode SI-TRISKA dari repository ini.
+2. Install package & dependency yang dibutuhkan menggunakan Composer, pada terminal ketik perintah: composer install
+3. Buat database baru pada mysql, contoh database: si_triska
+4. copy file ".env.example" ubah menjadi ".env"
+5. Setting koneksi database mysql pada file ".env" yang baru. Sesuaikan database, username dan password mysql-nya
+6. import table beserta data-data aplikasi dengan cara, pada terminal jalankan perintah : php artisan migrate:refresh --seed
+7. Login sebagai administrator menggunakan username dan password default melalui alamat : http://localhost/administrator/
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Terbuka untuk semua yang ingin berkontribusi,silahkan fork repositori ini ke github anda, dan silahkan buat pull-request.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+source-code ini dilisensikan di bawah lisensi [MIT license](https://opensource.org/licenses/MIT).

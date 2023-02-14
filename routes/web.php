@@ -37,6 +37,10 @@ Route::get('/skor-risiko-kebakaran', 'Score_Controller@getScoreLokasi');
 Route::get('/peta-zonasi', 'Score_Controller@displayPetaZonasi');
 Route::get('/grafik-tingkat-risiko', 'Score_Controller@displayChart');
 
+//Routes API Endpoint
+Route::get('/api/score', 'Api_Controller@index');
+Route::get('/api/lokasi/{lokasi}', 'Api_Controller@show');
+
 
 
 
